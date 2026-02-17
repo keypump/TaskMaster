@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+
+#this will  ignore  the .env file which contains sensitive information such as database credentials. 
+#my secret environment variables from accidently being uploaded to GitHub

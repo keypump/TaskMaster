@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  doer:
+    build: ./doer
+    container_name: doer_service
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: task_vault
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    depends_on:
+      - task_vault
+    networks:
+      - task_network
+    restart: always
+
+  task_vault:
+    image: postgres:15
+    container_name: task_vault_service
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - vault_data:/var/lib/postgresql/data
+    networks:
+      - task_network
+    restart: always
+
+volumes:
+  vault_data:
+
+networks:
+  task_network:
