@@ -40,6 +40,27 @@ curl http://localhost:5000/
 
 
 
+
+## API Examples
+
+•	Create a task:
+```bash
+curl -X POST http://localhost:5000/tasks \
+ -H "Content-Type: application/json" \
+ -d '{"description":"Finish Docker project","status":"pending"}'
+
+
+•	List tasks:
+```bash
+curl http://localhost:5000/tasks
+
+
+•	Delete a task:
+```bash
+curl -X DELETE http://localhost:5000/tasks/1
+
+
+
 Architecture
 •	doer: Flask app handling tasks
 •	task_vault: PostgreSQL database storing tasks
@@ -54,6 +75,7 @@ Naming & Theme
 •	task_vault: PostgreSQL container / “treasure chest” of tasks
 •	task_network: custom network
 •	vault_data: persistent storage
+    
     
 Lessons Learned
 •	Using standard PostgreSQL env vars simplifies setup
