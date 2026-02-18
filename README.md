@@ -85,5 +85,7 @@ Lessons Learned
 
 
 
-
+## Blog
+Read more about TaskMaster and the Docker setup in my blog:  
+[TaskMaster Article (Medium)](https://medium.com/@keypump/taskmaster-a-dockerized-to-do-app-that-makes-managing-tasks-fun-3fd1cf0eae47)
 
